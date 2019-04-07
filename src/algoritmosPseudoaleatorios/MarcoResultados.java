@@ -14,7 +14,6 @@ public class MarcoResultados extends JFrame{
 		this.seleccion= seleccion;
 		setTitle(seleccion);
 		setBounds(450,200,500,500);
-		//setResizable(true);
 		PanelResultados lamina = new PanelResultados(this.x,this.cantidad,this.seleccion);
 		add(lamina);
 	}
@@ -27,7 +26,7 @@ public class MarcoResultados extends JFrame{
 		
 		setTitle(this.seleccion);
 		setBounds(500,200,550,600);
-		//setResizable(false);
+		
 		PanelResultados lamina = new PanelResultados(this.x,this.y,this.cantidad,this.seleccion);
 		add(lamina);
 	}

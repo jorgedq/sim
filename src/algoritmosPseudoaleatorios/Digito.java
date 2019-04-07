@@ -13,9 +13,11 @@ public class Digito {
 		nroDigitos = cantidad;
 		this.medio = medio;
 		this.r = r;
+		
 	}
 	//retorna el Xo
 	public int getX() {
+		
 		return x;
 	}
 	//retorna el Yo
