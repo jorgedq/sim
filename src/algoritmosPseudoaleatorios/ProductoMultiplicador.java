@@ -68,9 +68,7 @@ public class ProductoMultiplicador {
 						numerosGenerados = generarMultiplicador(semillaDos,cantidad);
 						respuesta = true;
 					}
-					
-				}	
-			
+				}			
 		}
 		return respuesta;
 	}
@@ -85,7 +83,6 @@ public class ProductoMultiplicador {
 			double r = numeroAleatorio(medio);
 			junte.add(new ProDos(x,x1,y,cantidad,medio,r));
 			respuesta = juntar(junte,generarNumeros(x1,medio,d-1));
-			
 		}else {
 			respuesta = null;
 		}
@@ -101,8 +98,7 @@ public class ProductoMultiplicador {
 			int medio = medio(y);
 			double r = numeroAleatorio(medio);
 			junte.add(new ProDos(semilla,x1,y,cantidad,medio,r));
-			respuesta = juntar(junte,generarMultiplicador(medio,d-1));
-			
+			respuesta = juntar(junte,generarMultiplicador(medio,d-1));	
 		}else {
 			respuesta = null;
 		}
