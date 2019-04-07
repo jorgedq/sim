@@ -122,56 +122,33 @@ public class CuadradosMedios {
 	}
 	//extrae el digito medio
 	private int medio(long numero) {
+		return extraer(cantidad(numero),cantidad(semilla),numero);
+	}
+	private int extraer(int cantTotal,int cantSemilla,long numero) {
 		int respuesta = 0;
-		int cont = cantidad(this.semilla);
-		if(cont==4) {
-			respuesta= cuatro(numero);
-		}else if(cont==5){
-			respuesta = cinco(numero);
+		int h = (cantTotal - cantSemilla)/2;
+		if (h == 0) {
+			
+			respuesta = (int) (numero % (calcularModulo(cantSemilla)));
+		}else {
+			long x = dividir(numero,h);
+			respuesta =  (int) (x % (calcularModulo(cantSemilla)));
 		}
 		return respuesta;
 	}
-	//extraer para semilla de 4 digitos
-	private int cuatro(long numero){
-		long respuesta = 0;
-		int cont = cantidad(numero);
-		if(cont==8){
-			numero = numero/100;
-			respuesta = numero%10000;
-		}else if(cont ==7){
-			numero = numero/10;
-			respuesta = numero%10000;
-		}else if(cont == 6 ){
-			numero = numero/10;
-			respuesta = numero%10000;
-		}else if(cont == 5) {
-			respuesta = numero%10000;
-		}else {
-			respuesta = numero;
+	private long dividir(long numero ,int h) {
+		long respuesta = numero;
+		for(int i = 0;i<h;i++) {
+			respuesta = respuesta/10;
 		}
-		return (int) respuesta;
+		return respuesta;
 	}
-	//extraer para semilla de 5 digitos
-	private int cinco(long numero){
-		long respuesta = 0;
-		int cont = cantidad(numero);
-		if(cont == 10) {
-			numero = numero/100;
-			respuesta = numero%100000;
-		}else if(cont == 9){
-			numero = numero/100;
-			respuesta = numero%100000;
-		}else if(cont == 8) {
-			numero = numero/10;
-			respuesta = numero%100000;
-		}else if(cont == 7) {
-			numero = numero/10;
-			respuesta = numero%100000;
-		}else if(cont == 6) {
-			respuesta = numero%100000;
-		}else {
-			respuesta = numero;
+	private int calcularModulo(int cantidad) {
+		int respuesta = 1;
+		for(int i = 0; i< cantidad ;i++) {
+			respuesta = respuesta *10;
 		}
-		return (int)respuesta;
+		return respuesta;
 	}
 }
+	
