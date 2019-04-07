@@ -44,7 +44,7 @@ public class CuadradosMedios {
 	//verifica e inicia la generacion de numeros
 	public boolean iniciar(){
 		boolean respuesta = false;
-		if(valido()&&correcto()){
+		if(valido()){
 			numerosGenerados = generarNumeros(semilla,cantidad);
 			respuesta = true;
 		}
@@ -95,11 +95,7 @@ public class CuadradosMedios {
 	public boolean valido(){
 		return cantidad != 0;
 	}
-	//verifica si la cantidad de la semilla es mayor o igual a 4 y menor e igual a 5
-	public boolean correcto() {
-		int cant = cantidad(this.semilla);
-		return cant>3 && cant<6;
-	}
+	
 	//cuenta la cantidad de digitos de un valor long
 	private int cantidad(long x) {
 		int respuesta = 0;
