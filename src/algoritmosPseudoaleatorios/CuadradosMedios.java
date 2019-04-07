@@ -58,7 +58,7 @@ public class CuadradosMedios {
 			long y = (long)x*(long)x;
 			int cantidad = cantidad(y);
 			int medio = medio(y);
-			float r = numeroAleatorio(medio);
+			double r = numeroAleatorio(medio);
 			junte.add(new Digito(x,y,cantidad,medio,r));
 			respuesta = juntar(junte,generarNumeros(medio,d-1));
 			
@@ -81,13 +81,16 @@ public class CuadradosMedios {
 		return respuesta;
 	}
 	//define el Ri
-	private float numeroAleatorio(int medio) {
-		float respuesta;
-		int count = cantidad(medio);
-		if(count <= 4 ) {
-			respuesta = (float)medio/10000;
+	private double numeroAleatorio(int medio) {
+		return (double)medio / divisor(medio);
+	}
+	//calcular el divisor par los Ri
+	private double divisor(int numero) {
+		double respuesta = 1;
+		if (numero == 0) {
+			respuesta = 1;
 		}else {
-			respuesta = (float)medio/100000;
+			respuesta = respuesta * 10 * divisor(numero/10);
 		}
 		return respuesta;
 	}
@@ -120,18 +123,21 @@ public class CuadradosMedios {
 	private int medio(long numero) {
 		return extraer(cantidad(numero),cantidad(semilla),numero);
 	}
+	
+	//metodo para extraer el modulo de los digitos
+	
 	private int extraer(int cantTotal,int cantSemilla,long numero) {
 		int respuesta = 0;
 		int h = (cantTotal - cantSemilla)/2;
 		if (h == 0) {
-			
 			respuesta = (int) (numero % (calcularModulo(cantSemilla)));
 		}else {
-			long x = dividir(numero,h);
+			long x = dividir(numero,h);		
 			respuesta =  (int) (x % (calcularModulo(cantSemilla)));
 		}
 		return respuesta;
 	}
+	//metodo para dividir el numero
 	private long dividir(long numero ,int h) {
 		long respuesta = numero;
 		for(int i = 0;i<h;i++) {
@@ -139,11 +145,14 @@ public class CuadradosMedios {
 		}
 		return respuesta;
 	}
+	//metodo para poder extraer el modulo
 	private int calcularModulo(int cantidad) {
 		int respuesta = 1;
+		
 		for(int i = 0; i< cantidad ;i++) {
-			respuesta = respuesta *10;
+			respuesta = respuesta * 10;
 		}
+		
 		return respuesta;
 	}
 }

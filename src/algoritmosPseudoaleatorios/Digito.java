@@ -5,9 +5,9 @@ public class Digito {
 	private long y;
 	private int nroDigitos;
 	private int medio;
-	private float r;
+	private double r;
 	//metodo constructor de la clase
-	public Digito(int x, long y, int cantidad,int medio,float r) {
+	public Digito(int x, long y, int cantidad,int medio,double r) {
 		this.x = x;
 		this.y = y;
 		nroDigitos = cantidad;
@@ -31,7 +31,7 @@ public class Digito {
 		return medio;
 	}
 	//retorna el Ri generado
-	public float getR() {
+	public double getR() {
 		return r;
 	}
 	//devuelve informacion del digito
