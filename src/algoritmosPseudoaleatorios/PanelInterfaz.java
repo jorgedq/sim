@@ -150,6 +150,9 @@ public class PanelInterfaz extends JPanel {
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
 			if(valido()) {
+				if(coinciden()) {
+					
+				
 				try{
 					if(combo.getSelectedIndex()==0) {
 						int uno = Integer.parseInt(semilla1.getText());
@@ -177,10 +180,34 @@ public class PanelInterfaz extends JPanel {
 				}catch(NumberFormatException e) {
 					JOptionPane.showMessageDialog(null, "Los campos de texto tienen que contener digitos");
 				}
+				}else {
+					JOptionPane.showMessageDialog(null, "Para el producto medio y el multiplicador constante las semillas tienen que ser de igual cantidad de digitos");
+				}
 				
 			}else {
 				JOptionPane.showMessageDialog(null,"Todos los campos deben estar llenados");
 			}	
+		}
+		public boolean coinciden() {
+			boolean respuesta = false;
+			if(combo.getSelectedIndex()!=0) {
+				if((cantidad((long)Integer.parseInt(semilla1.getText())))== (cantidad((long)Integer.parseInt(semilla2.getText())))) {
+					respuesta = true;
+				}
+			}else {
+				respuesta = true;
+			}
+			return respuesta;
+		}
+		//cuenta la cantidad de digitos de un valor long
+		private int cantidad(long x) {
+			int respuesta = 0;
+			if(x==0) {
+				respuesta = 0;
+			}else{
+				respuesta = 1 + cantidad(x/10);
+			}
+			return respuesta;
 		}
 		public boolean valido() {
 			boolean respuesta = false;

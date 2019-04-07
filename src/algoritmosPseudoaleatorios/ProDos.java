@@ -5,9 +5,9 @@ public class ProDos {
 	private long y;
 	private int nroDigitos;
 	private int medio;
-	private float r;
+	private double r;
 	//metodo constructor de la clase
-	public ProDos(int x, int x2, long y, int cantidad,int medio,float r) {
+	public ProDos(int x, int x2, long y, int cantidad,int medio,double r) {
 		this.x = x;
 		this.x2 = x2;
 		this.y = y;
@@ -35,7 +35,7 @@ public class ProDos {
 		return medio;
 	}
 	//retorna el Ri generado
-	public float getR() {
+	public double getR() {
 		return r;
 	}
 	//devuelve informacion del digito
