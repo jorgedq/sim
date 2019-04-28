@@ -59,7 +59,7 @@ public class PanelInterfaz extends JPanel {
 		JLabel label1 = new JLabel();
 		JLabel label2 = new JLabel();
 		
-		generar = new JButton("GENERAR NÚMEROS");
+		generar = new JButton("GENERAR NUMEROS");
 		Accion pulsar = new Accion();
 		generar.addActionListener(pulsar);
 		JPanel panel1 = new JPanel();
@@ -133,7 +133,7 @@ public class PanelInterfaz extends JPanel {
 		panel2.add(labelMedio2);
 		
 		cantidad = new JTextField(8);
-		JLabel label3 = new JLabel("Ingrese cantidad de números a generar");
+		JLabel label3 = new JLabel("Ingrese cantidad de numeros a generar");
 		panel3.add(cantidad);
 		panel3.add(label3);
 		
